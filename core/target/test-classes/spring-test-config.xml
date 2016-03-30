@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+    <context:annotation-config/>
+
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="connectionProperties" value="${jdbc.connectionProperties}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.pwd}"/>
+        <property name="filters" value="${druid.filters}"/>
+        <property name="maxActive" value="${jdbc.maxActive}"/>
+        <property name="initialSize" value="${jdbc.initialSize}"/>
+        <property name="maxWait" value="${jdbc.maxWait}"/>
+        <property name="minIdle" value="${jdbc.initialSize}"/>
+        <property name="timeBetweenEvictionRunsMillis" value="${jdbc.timeBetweenEvictionRunsMillis}"/>
+        <property name="numTestsPerEvictionRun" value="${jdbc.numTestsPerEvictionRun}"/>
+        <property name="minEvictableIdleTimeMillis" value="${jdbc.minEvictableIdleTimeMillis}"/>
+        <property name="validationQuery" value="${jdbc.validationQuery}"/>
+        <property name="testOnBorrow" value="${jdbc.testOnBorrow}"/>
+        <property name="testOnReturn" value="${jdbc.testOnReturn}"/>
+        <property name="testWhileIdle" value="${jdbc.testWhileIdle}"/>
+        <property name="poolPreparedStatements" value="${jdbc.poolPreparedStatements}"/>
+        <property name="maxPoolPreparedStatementPerConnectionSize"
+                  value="${jdbc.maxPoolPreparedStatementPerConnectionSize}"/>
+    </bean>
+    <!--	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+            &lt;!&ndash;dataSource属性指定要用到的连接池 &ndash;&gt;
+            <property name="dataSource" ref="dataSource" />
+            &lt;!&ndash;configLocation属性指定mybatis的核心配置文件 &ndash;&gt;
+            <property name="configLocation" value="classpath*:configuration.xml" />
+            &lt;!&ndash; 所有配置的mapper文件 &ndash;&gt;
+            <property name="mapperLocations" >
+                <list>
+                    <value>classpath*:com/ldasset/mapper/*.xml</value>
+                </list>
+            </property>
+        </bean>-->
+
+    <!--    <bean id="sqlSessionFactory"
+              class="org.mybatis.spring.SqlSessionFactoryBean"
+              p:dataSource-ref="dataSource"
+              p:configLocation="classpath:/configuration.xml"
+              p:mapperLocations="classpath:mapper/*.xml"/>-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--dataSource属性指定要用到的连接池-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--configLocation属性指定mybatis的核心配置文件-->
+        <!--<property name="configLocation" value="classpath:/configuration.xml" />-->
+        <property name="mapperLocations" value="classpath:mapeer/*.xml"/>
+        <!--所有配置的mapper文件-->
+        <!--	<property name="mapperLocations" >
+                <list>
+                    <value>classpath*:com/ldasset//*xml</value>
+                </list>
+            </property>-->
+        <property name="typeAliasesPackage" value="com.ldasset.models"/>
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageHelper">
+                    <property name="properties">
+                        <value>
+                            dialect=hsqldb
+                        </value>
+                    </property>
+                </bean>
+            </array>
+        </property>
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.ldasset.inter"/>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+
+    <context:component-scan base-package="com.ldasset.inter"/>
+
+    <context:component-scan base-package="com.ldasset.service"/>
+
+    <bean id="placeholderConfig"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:jdbc.properties</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>

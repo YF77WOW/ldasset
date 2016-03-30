@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Surefire suite" duration-ms="1456" started-at="2016-02-24T03:17:54Z" finished-at="2016-02-24T03:17:56Z">
+    <groups>
+    </groups>
+    <test name="Surefire test" duration-ms="1456" started-at="2016-02-24T03:17:54Z" finished-at="2016-02-24T03:17:56Z">
+      <class name="com.ldasset.core.service.spring.MemberServiceTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.ldasset.core.service.spring.MemberServiceTest@2b2948e2]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="8" started-at="2016-02-24T11:17:54Z" finished-at="2016-02-24T11:17:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.ldasset.core.service.spring.MemberServiceTest@2b2948e2]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="794" started-at="2016-02-24T11:17:54Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2016-02-24T11:17:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.ldasset.core.service.spring.MemberServiceTest@2b2948e2]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2016-02-24T11:17:55Z" finished-at="2016-02-24T11:17:55Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.ldasset.core.service.spring.MemberServiceTest.testGetByUserPhone() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testGetByUserPhone()[pri:0, instance:com.ldasset.core.service.spring.MemberServiceTest@2b2948e2]" name="testGetByUserPhone" duration-ms="645" started-at="2016-02-24T11:17:55Z" finished-at="2016-02-24T11:17:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetByUserPhone -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.ldasset.core.service.spring.MemberServiceTest@2b2948e2]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2016-02-24T11:17:56Z" finished-at="2016-02-24T11:17:56Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.ldasset.core.service.spring.MemberServiceTest.testGetByUserPhone() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.ldasset.core.service.spring.MemberServiceTest@2b2948e2]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2016-02-24T11:17:56Z" finished-at="2016-02-24T11:17:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.ldasset.core.service.spring.MemberServiceTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

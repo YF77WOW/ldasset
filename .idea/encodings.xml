@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/.idea" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core/src/main/java/com/ldasset/inter/IMember.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core/src/main/java/com/ldasset/models/Members.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core/src/main/java/com/ldasset/service/IMemberService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core/src/main/java/com/ldasset/service/spring/MemberService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core/src/main/java/com/ldasset/utils/SecurityHelper.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/core/src/test/java/com/ldasset/core/service/spring/MemberServiceTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core/src/test/resources/configuration.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core/src/test/resources/mapper/MemberMapper.xml" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
