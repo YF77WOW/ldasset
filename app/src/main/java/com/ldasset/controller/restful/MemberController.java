@@ -62,6 +62,26 @@ public class MemberController {
         return restfulResult;
     }
 
+    @RequestMapping(value = "/tes", method = RequestMethod.POST)
+    @ResponseBody
+    public RestfulResult test(
+            HttpServletRequest request, HttpServletResponse response,
+            @RequestParam(value = "userPhone", required = true) String userPhone) {
+        RestfulResult restfulResult = new RestfulResult();
+        try {
+            boolean flag = memberService.checkPhoneUnique(userPhone);
+            if (!flag) {
+                throw new ServiceException("手机号码已存在");
+            }
+            restfulResult.setSuccess(true);
+        } catch (ServiceException ex) {
+            restfulResult.setMsg(ex.getMessage());
+        } catch (Exception e) {
+            restfulResult.setMsg("接口异常");
+        }
+        return restfulResult;
+    }
+
     private Members getCurrentUser() {
         return (Members) SecurityUtils.getSubject().getPrincipal();
     }
